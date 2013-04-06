@@ -1,0 +1,88 @@
+<project name="hogdev-racecontrol" default="dist" basedir=".">
+    <description>
+        build file for all HogDev projects
+    </description>
+  <!-- set global properties for this build -->
+  <property name="src" value="source"/>
+  <property name="build" value="classes"/>
+  <property name="dist"  value="dist"/>
+  <property name="archive"  value="archive"/>
+  <property name="lib"  value="lib"/>
+  <property name="config"  value="config"/>
+
+  <target name="depends">
+		<ant dir="../hogdev-toolbox"/>
+		<copy todir="${lib}">
+			<fileset dir="../hogdev-toolbox/${dist}"/>
+		</copy>
+  </target>
+  
+  <target name="init" >
+	<echo message="Building ${ant.project.name}"/>
+    <!-- Create the time stamp -->
+    <tstamp/>
+    <!-- Create the build directory structure used by compile -->
+    <mkdir dir="${build}"/>
+    <mkdir dir="${archive}"/>
+	<antcall target="depends"/>
+	<path id="classpath">
+		<fileset dir="lib">
+			<include name="**/*.jar"/>
+		</fileset>
+	</path>
+  </target>
+
+  <target name="compile" depends="init"
+        description="compile the source " >
+    <!-- Compile the java code from ${src} into ${build} -->
+    <javac 
+	srcdir="${src}" 
+	destdir="${build}"
+        classpathref="classpath" />
+		
+	<echo message="Copying resources"/>	
+	<copy todir="${build}/com/hogdev/racecontrol">
+		<fileset dir="${src}/com/hogdev/racecontrol">
+		  <include name="*.jpg"/>
+		</fileset>
+	</copy>
+  </target>
+
+  <target name="dist" depends="compile"
+        description="generate the distribution" >
+    <!-- Create the distribution directory -->
+    <mkdir dir="${dist}"/>
+
+    <!-- Put everything in ${build} into the MyProject-${DSTAMP}.jar file -->
+    <jar jarfile="${dist}/${ant.project.name}.jar" 
+		basedir="${build}"
+	        manifest="${config}/${ant.project.name}.mf"/>
+    <copy file="${dist}/${ant.project.name}.jar" tofile="${archive}/${ant.project.name}-${DSTAMP}.jar"/>
+	
+	<copy todir="${dist}">
+		<fileset dir="${lib}"/>
+	</copy>
+	
+	<!-- call sign task -->
+	<antcall target="sign"/>
+  </target>
+
+  <target name="clean"
+        description="clean up" >
+    <!-- Delete the ${build} and ${dist} directory trees -->
+    <delete dir="${build}"/>
+    <delete dir="${dist}"/>
+  </target>
+  
+  <target name="sign"
+        description="sign jars for use by Java Web Start" >
+	<signjar keystore="../keystore" alias="selfsigned" jar="${dist}/${ant.project.name}.jar" keypass="password" signedjar="${dist}/sgn-${ant.project.name}.jar" storepass="password"/>        
+	<signjar keystore="../keystore" alias="selfsigned" jar="${dist}/hogdev-util.jar" keypass="password" signedjar="${dist}/sgn-hogdev-util.jar" storepass="password"/>        
+	<signjar keystore="../keystore" alias="selfsigned" jar="${dist}/hogdev-widgets.jar" keypass="password" signedjar="${dist}/sgn-hogdev-widgets.jar" storepass="password"/>        
+	<signjar keystore="../keystore" alias="selfsigned" jar="${dist}/hogdev-toolbox.jar" keypass="password" signedjar="${dist}/sgn-hogdev-toolbox.jar" storepass="password"/>        
+	<signjar keystore="../keystore" alias="selfsigned" jar="${dist}/jlirc-user-0.06.jar" keypass="password" signedjar="${dist}/sgn-jlirc-user-0.06.jar" storepass="password"/>        
+  </target>
+  
+</project>
+
+

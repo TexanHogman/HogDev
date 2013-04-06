@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="source"/>
+	<classpathentry kind="lib" path="lib/antlr.jar"/>
+	<classpathentry kind="lib" path="lib/commons-httpclient-contrib.jar"/>
+	<classpathentry kind="lib" path="lib/commons-httpclient.jar"/>
+	<classpathentry kind="lib" path="lib/commons-logging.jar"/>
+	<classpathentry kind="lib" path="lib/commons-transaction-1.0.jar"/>
+	<classpathentry kind="lib" path="lib/hogdev-util.jar"/>
+	<classpathentry kind="lib" path="lib/jakarta-slide-commandline-2.1.jar"/>
+	<classpathentry kind="lib" path="lib/jakarta-slide-webdavlib-2.1.jar"/>
+	<classpathentry kind="lib" path="lib/java-getopt-1.0.8.jar"/>
+	<classpathentry kind="lib" path="lib/jdom-1.0.jar"/>
+	<classpathentry kind="lib" path="lib/jid3lib-0.5.4.jar"/>
+	<classpathentry kind="lib" path="lib/log4j-1.2.8.jar"/>
+	<classpathentry kind="lib" path="lib/lucene-core-2.1.0.jar"/>
+	<classpathentry kind="lib" path="lib/mp3-0.2.jar"/>
+	<classpathentry kind="lib" path="lib/xml-im-exporter1.1.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="classes"/>
+</classpath>

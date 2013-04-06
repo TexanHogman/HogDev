@@ -1,0 +1,1 @@
+java -cp ..\classes;..\lib\comm.jar;..\lib\log4j-1.2.8.jar;..\lib\hogdev-util.jar -Djava.library.path=%~dp0  com.hogdev.traffic.StandardStopLight

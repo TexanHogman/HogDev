@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: com.hogdev.racecontrol.RaceControl
+Class-Path: hogdev-util.jar hogdev-widgets.jar hogdev-toolbox.jar jlirc-user-0.06.jar
+

@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: com.hogdev.toolbox.ToolBox
+Class-Path: hogdev-util.jar hogdev-widgets.jar 
+

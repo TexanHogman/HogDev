@@ -1,0 +1,20 @@
+<%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html"%>
+<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic"%>
+<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean"%>
+
+<%@page import="org.apache.struts.Globals"%>
+
+<logic:present name="<%=Globals.MESSAGE_KEY%>">
+	<TABLE class="groupbox" border="0" width="100%" cellpadding="0"
+		cellspacing="0">
+		<TR>
+			<td align="left" width="34"><html:img page="/images/info.gif"
+				height="34" width="34" border="0"/></td>
+			<TD align="left">
+			<div class="message"><html:messages message="true" id="message">
+				<LI><bean:write name="message" /></LI>
+			</html:messages></div>
+			</TD>
+		</TR>
+	</TABLE>
+</logic:present>

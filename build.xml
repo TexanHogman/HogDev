@@ -1,0 +1,48 @@
+<project name="HogDev" default="dist" basedir=".">
+    <description>
+        Main build file for all hogdev products
+    </description>
+
+  <property name="install" value="/Software/HogDev"/>
+
+  <target name="dist">
+    <mkdir dir="${install}"/>
+	
+	<ant dir="hogdev-util" target="dist"/>
+    <copy todir="${install}">
+       <fileset dir="hogdev-util/dist"/>
+    </copy>
+	
+	<ant dir="hogdev-widgets" target="dist"/>
+    <copy todir="${install}">
+       <fileset dir="hogdev-widgets/dist"/>
+    </copy>
+	
+	<ant dir="hogdev-cddb" target="dist"/>
+    <copy todir="${install}">
+       <fileset dir="hogdev-cddb/dist"/>
+    </copy>
+	
+	<ant dir="hogdev-toolbox" target="dist"/>
+    <copy todir="${install}">
+       <fileset dir="hogdev-toolbox/dist"/>
+    </copy>
+	
+	<ant dir="hogdev-racecontrol" target="dist"/>
+    <copy todir="${install}">
+       <fileset dir="hogdev-racecontrol/dist"/>
+    </copy>
+	
+  </target>
+  
+  <target name="clean">
+	<ant dir="hogdev-util" target="clean"/>
+	<ant dir="hogdev-widgets" target="clean"/>
+	<ant dir="hogdev-cddb" target="clean"/>
+	<ant dir="hogdev-toolbox" target="clean"/>
+	<ant dir="hogdev-racecontrol" target="clean"/>
+  </target>
+
+</project>
+
+

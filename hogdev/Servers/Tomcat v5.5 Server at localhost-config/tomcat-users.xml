@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tomcat-users>
+  <role rolename="musicuser"/>
+  <role rolename="manager"/>
+  <role rolename="webcamuser"/>
+  <role rolename="videouser"/>
+  <role rolename="automationuser"/>
+  <role rolename="uploaduser"/>
+  <user password="kdx200" roles="automationuser,webcamuser,musicuser,videouser,uploaduser,manager" username="thehogges"/>
+</tomcat-users>
