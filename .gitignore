@@ -1,3 +1,7 @@
 classes
 .svn
 .metadata
+.settings
+.project
+.classpath
+target
