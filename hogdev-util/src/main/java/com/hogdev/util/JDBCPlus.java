@@ -551,7 +551,8 @@ public class JDBCPlus implements Runnable, PropertyChangeListener
         this.wr = wr;
     }
 
-    public void run()
+    @Override
+	public void run()
     {
         process();
     }
@@ -566,7 +567,8 @@ public class JDBCPlus implements Runnable, PropertyChangeListener
         listeners.removePropertyChangeListener(l);
     }
 
-    public void propertyChange(PropertyChangeEvent evt)
+    @Override
+	public void propertyChange(PropertyChangeEvent evt)
     {
         System.out.println(evt.getNewValue());
     }

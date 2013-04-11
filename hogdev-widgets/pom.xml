@@ -2,8 +2,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.hogdev.util</groupId>
-	<artifactId>hogdev-util</artifactId>
-	<name>hogdev-util</name>
+	<artifactId>hogdev-widgets</artifactId>
+	<name>hogdev-widgets</name>
 	<packaging>jar</packaging>
 	<version>1.0.0-SNAPSHOT</version>
 	<description></description>
@@ -19,34 +19,9 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>urbanophile</groupId>
-			<artifactId>java-getopt</artifactId>
-			<version>1.0.9</version>
-		</dependency>
-		<dependency>
-			<groupId>commons-httpclient</groupId>
-			<artifactId>commons-httpclient</artifactId>
-			<version>3.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.lucene</groupId>
-			<artifactId>lucene-core</artifactId>
-			<version>2.1.0</version>
-		</dependency>
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
-		</dependency>
-		<dependency>
-			<groupId>slide</groupId>
-			<artifactId>slide-webdavlib</artifactId>
-			<version>2.1</version>
-		</dependency>
-		<dependency>
-			<groupId>net.sf.javamusictag</groupId>
-			<artifactId>jid3lib</artifactId>
-			<version>0.5.4</version>
+			<groupId>com.hogdev.util</groupId>
+			<artifactId>hogdev-util</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 

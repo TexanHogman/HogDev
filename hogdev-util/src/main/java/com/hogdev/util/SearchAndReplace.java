@@ -540,12 +540,14 @@ public class SearchAndReplace implements Runnable, Serializable,
         listeners.removePropertyChangeListener(l);
     }
 
-    public void propertyChange(PropertyChangeEvent evt)
+    @Override
+	public void propertyChange(PropertyChangeEvent evt)
     {
         System.out.println(evt.getNewValue());
     }
 
-    public void run()
+    @Override
+	public void run()
     {
         doSearch();
     }

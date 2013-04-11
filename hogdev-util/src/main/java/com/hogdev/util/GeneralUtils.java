@@ -164,7 +164,8 @@ public class GeneralUtils
 	Arrays.sort(fa_Children, new Comparator()
 	{
 
-	    public int compare(Object o1, Object o2)
+	    @Override
+		public int compare(Object o1, Object o2)
 	    {
 		return ((File) o1).getName().compareTo(((File) o2).getName());
 	    }
@@ -191,6 +192,7 @@ public class GeneralUtils
 	    Thread th = new Thread(new Runnable()
 	    {
 
+		@Override
 		public synchronized void run()
 		{
 		    try

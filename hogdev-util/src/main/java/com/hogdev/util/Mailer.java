@@ -50,7 +50,8 @@ public class Mailer extends Thread
      * When the Mailer is started, it gathers information from the MailSource,
      * connects to the SMTP server, and sends the message.
      */
-    public void run()
+    @Override
+	public void run()
     {
         boolean test;
         String dest[];

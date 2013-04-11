@@ -920,7 +920,8 @@ public class JThumb extends JApplet
 
 class FileNameComparator implements Comparator
 {
-    public int compare(Object o1, Object o2)
+    @Override
+	public int compare(Object o1, Object o2)
     {
         if (o1 instanceof File && o2 instanceof File)
         {

@@ -23,7 +23,8 @@ public class NonHiddenFileFilter implements FileFilter
      * 
      * @see java.io.FileFilter#accept(java.io.File)
      */
-    public boolean accept(File file)
+    @Override
+	public boolean accept(File file)
     {
         return !file.isHidden();
     }
@@ -33,7 +34,8 @@ public class NonHiddenFileFilter implements FileFilter
      * 
      * @see java.lang.Object#toString()
      */
-    public String toString()
+    @Override
+	public String toString()
     {
         // TODO Auto-generated method stub
         return "NonHiddenFileFilter";

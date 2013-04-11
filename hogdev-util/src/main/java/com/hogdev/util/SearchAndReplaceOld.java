@@ -52,7 +52,8 @@ public class SearchAndReplaceOld implements Serializable
         SearchAndReplaceOld sar = new SearchAndReplaceOld();
         sar.addPropertyChangeListener(new PropertyChangeListener()
         {
-            public void propertyChange(PropertyChangeEvent evt)
+            @Override
+			public void propertyChange(PropertyChangeEvent evt)
             {
                 System.out.println(evt.getNewValue());
             }
@@ -147,7 +148,8 @@ public class SearchAndReplaceOld implements Serializable
         bStop_ = false;
         Thread th = new Thread(new Runnable()
         {
-            public void run()
+            @Override
+			public void run()
             {
                 process();
             }

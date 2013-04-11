@@ -35,13 +35,15 @@ public class NonHiddenWCFileFilter implements FileFilter
      * 
      * @see java.io.FileFilter#accept(java.io.File)
      */
-    public boolean accept(File file)
+    @Override
+	public boolean accept(File file)
     {
         return nhf.accept(file)
                 && wcf.accept(file.getParentFile(), file.getName());
     }
 
-    public String toString()
+    @Override
+	public String toString()
     {
         // TODO Auto-generated method stub
         return "NonHiddenWCFileFilter [" + pattern + "]";

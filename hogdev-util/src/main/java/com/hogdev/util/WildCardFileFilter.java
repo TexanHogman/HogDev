@@ -386,7 +386,8 @@ public class WildCardFileFilter implements FilenameFilter, FileFilter,
     // The argument String name is the filename to be filtered, in later
     // comments in this
     // method, it is called the "targetfilename".
-    public boolean accept(File dir, String name)
+    @Override
+	public boolean accept(File dir, String name)
     {
         boolean acceptfile = true;
         String filename;
@@ -1246,12 +1247,14 @@ public class WildCardFileFilter implements FilenameFilter, FileFilter,
      * 
      * @see java.io.FileFilter#accept(java.io.File)
      */
-    public boolean accept(File pathname)
+    @Override
+	public boolean accept(File pathname)
     {
         return accept(pathname.getParentFile(), pathname.getName());
     } // end accept
 
-    public String toString()
+    @Override
+	public String toString()
     {
         // TODO Auto-generated method stub
         return "WildCardFileFilter [" + pattern + "]";

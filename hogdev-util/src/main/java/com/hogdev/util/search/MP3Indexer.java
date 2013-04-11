@@ -116,7 +116,8 @@ public class MP3Indexer
 	    {
 		File files[] = file.listFiles(new FileFilter()
 		{
-		    public boolean accept(File file)
+		    @Override
+			public boolean accept(File file)
 		    {
 			if (file.isHidden())
 			    return false;

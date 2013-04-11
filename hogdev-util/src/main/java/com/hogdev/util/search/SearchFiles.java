@@ -37,6 +37,7 @@ public class SearchFiles
 			this.field = field;
 		}
 
+		@Override
 		public byte[] norms(String field) throws IOException
 		{
 			return in.norms(this.field);
