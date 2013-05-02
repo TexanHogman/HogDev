@@ -1,13 +1,23 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.hogdev.widgets</groupId>
-	<artifactId>hogdev-widgets</artifactId>
-	<name>hogdev-widgets</name>
+	<groupId>com.hogdev.racecontrol</groupId>
+	<artifactId>hogdev-racecontrol</artifactId>
+	<name>hogdev-racecontrol</name>
 	<packaging>jar</packaging>
 	<version>1.0.0-SNAPSHOT</version>
 	<description></description>
 	<url>${siteUrl}/${project.artifactId}/${project.version}</url>
+
+	<repositories>
+	    <!--other repositories if any-->
+	    <repository>
+	        <id>project.local</id>
+	        <name>project</name>
+	        <url>file:${project.basedir}/repo</url>
+	    </repository>
+	</repositories>	
+
 
 	<developers>
 		<developer>
@@ -19,9 +29,19 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>com.hogdev.util</groupId>
-			<artifactId>hogdev-util</artifactId>
+			<groupId>com.hogdev.widgets</groupId>
+			<artifactId>hogdev-widgets</artifactId>
 			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.hogdev.toolbox</groupId>
+			<artifactId>hogdev-toolbox</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>na</groupId>
+			<artifactId>jlirc-user</artifactId>
+			<version>0.06</version>
 		</dependency>
 	</dependencies>
 

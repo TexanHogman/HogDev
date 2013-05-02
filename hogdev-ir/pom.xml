@@ -1,9 +1,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.hogdev.widgets</groupId>
-	<artifactId>hogdev-widgets</artifactId>
-	<name>hogdev-widgets</name>
+	<groupId>com.hogdev.ir</groupId>
+	<artifactId>hogdev-ir</artifactId>
+	<name>hogdev-ir</name>
 	<packaging>jar</packaging>
 	<version>1.0.0-SNAPSHOT</version>
 	<description></description>
@@ -19,9 +19,9 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>com.hogdev.util</groupId>
-			<artifactId>hogdev-util</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
+			<groupId>org.rxtx</groupId>
+			<artifactId>rxtx</artifactId>
+			<version>2.1.7</version>
 		</dependency>
 	</dependencies>
 
