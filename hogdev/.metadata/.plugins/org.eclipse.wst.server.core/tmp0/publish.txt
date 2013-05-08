@@ -1,4 +1,0 @@
-#Tomcat publish data
-#Tue Apr 24 07:28:36 CDT 2012
-org.eclipse.jst.j2ee.server\:hogdev-util=WEB-INF/lib/hogdev-util.jar
-org.eclipse.jst.j2ee.server\:hogdev-enterprise=WEB-INF/lib/hogdev-enterprise.jar
