@@ -6,6 +6,7 @@
  */
 package com.hogdev.enterprise.beans;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
@@ -52,7 +53,10 @@ public class Stats implements Serializable
 		{
 			try
 			{
-				FileInputStream istream = new FileInputStream(name);
+				// from now on lets load this from the user.home dir
+				String home = System.getProperty("user.home");
+						
+				FileInputStream istream = new FileInputStream(home + File.separator + name);
 				ObjectInputStream p = new ObjectInputStream(istream);
 				stats = (Stats)p.readObject();
 				istream.close();
@@ -90,7 +94,10 @@ public class Stats implements Serializable
 		logger.debug("save stats [" + name + "]");
 		try
 		{
-			FileOutputStream ostream = new FileOutputStream(name);
+			// from now on lets load this from the user.home dir
+			String home = System.getProperty("user.home");
+			
+			FileOutputStream ostream = new FileOutputStream(home + File.separator + name);
 			ObjectOutputStream p = new ObjectOutputStream(ostream);
 			p.writeObject(this);
 			ostream.close();
