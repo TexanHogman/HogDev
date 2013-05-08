@@ -348,6 +348,12 @@
 	</login-config>
 	<security-role>
 		<description>
+			person who has access to site
+		</description>
+		<role-name>webuser</role-name>
+	</security-role>
+	<security-role>
+		<description>
 			person who has access to music section
 		</description>
 		<role-name>musicuser</role-name>

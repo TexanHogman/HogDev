@@ -319,7 +319,7 @@ case "status":
 case "show":
 p[n.nodeName]=n.firstChild.nodeValue;
 break;
-case "status":
+case "status-bug":
 p.priority=parseInt(n.firstChild.nodeValue);
 break;
 case "x":
