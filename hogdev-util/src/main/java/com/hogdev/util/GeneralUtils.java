@@ -156,7 +156,7 @@ public class GeneralUtils
 		return al;
 	}
 
-	public static ArrayList collectAll(File flDir, FileFilter filter)
+	private static ArrayList collectAll(File flDir, FileFilter filter)
 	{
 		logger.debug("Collecting from: " + flDir.getPath() + " : " + filter);
 		
@@ -190,8 +190,7 @@ public class GeneralUtils
 		if (alAll == null)
 		{
 			logger.debug("Populating Cache: " + flDir.getPath() + " : " + filter);
-			alAll = collectAll(flDir, filter);
-			hm_.put(strKey, alAll);
+			hm_.put(strKey, new ArrayList());
 			Thread th = new Thread(new Runnable()
 			{
 
@@ -202,10 +201,28 @@ public class GeneralUtils
 					{
 						while (true)
 						{
-							Thread.sleep(1000 * 60 * 60);
 							logger.debug("Start Cache Refresh: " + flDir.getPath() + " : " + filter);
 							GeneralUtils.hm_.put(strKey, GeneralUtils.collectAll(flDir, filter));
 							logger.debug("Complete Cache Refresh: " + flDir.getName() + " : " + filter);
+							String refresh = System.getProperty("cache.refresh.hours");
+							int ref = 0;
+							try
+							{
+								ref = Integer.valueOf(refresh);
+							}
+							catch(NumberFormatException e)
+							{
+								logger.warn("value of cache.refresh.hours is not number: " + refresh );
+								break;
+							}
+							if(ref <= 0 )
+							{
+								logger.info("value of cache.refresh.hours is not greater than 0 therefore no refresh");
+								break;
+								
+							}
+									
+							Thread.sleep(1000 * 60 * 60 * ref);
 						}
 					}
 					catch (InterruptedException e)
