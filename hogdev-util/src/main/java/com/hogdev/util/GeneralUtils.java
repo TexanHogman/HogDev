@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
 import java.util.StringTokenizer;
 
 import org.apache.log4j.Logger;
@@ -156,12 +157,19 @@ public class GeneralUtils
 		return al;
 	}
 
-	private static ArrayList collectAll(File flDir, FileFilter filter)
+	private static ArrayList collectAll(File flDir, final FileFilter filter)
 	{
 		logger.debug("Collecting from: " + flDir.getPath() + " : " + filter);
 		
 		ArrayList alAll = new ArrayList();
-		File fa_Children[] = flDir.listFiles(filter);
+		File fa_Children[] = flDir.listFiles(new FileFilter()
+		{
+			@Override
+			public boolean accept(File pathname)
+			{
+				return pathname.isDirectory() || filter.accept(pathname);
+			}
+		});
 
 		// sort them first
 		Arrays.sort(fa_Children, new Comparator()
@@ -202,8 +210,9 @@ public class GeneralUtils
 						while (true)
 						{
 							logger.debug("Start Cache Refresh: " + flDir.getPath() + " : " + filter);
-							GeneralUtils.hm_.put(strKey, GeneralUtils.collectAll(flDir, filter));
-							logger.debug("Complete Cache Refresh: " + flDir.getName() + " : " + filter);
+							List list = GeneralUtils.collectAll(flDir, filter);
+							GeneralUtils.hm_.put(strKey, list);
+							logger.debug("Complete Cache Refresh: " + flDir.getName() + " : " + filter + " : " + list.size() + " items.");
 							String refresh = System.getProperty("cache.refresh.hours");
 							int ref = 0;
 							try

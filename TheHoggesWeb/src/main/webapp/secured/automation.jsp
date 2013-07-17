@@ -1,4 +1,6 @@
-<%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html"%>
+<%@ taglib uri="http://jakarta.apache.org/struts/tags-bean" prefix="bean" %>
+<%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
+<%@ taglib uri="http://jakarta.apache.org/struts/tags-html" prefix="html" %>
 <%@ page import="java.util.*" %>
 <script type="text/javascript"
 	src="<html:rewrite page="/js/dojo-release-1.2.3/dojo/dojo.js"/>"></script>
@@ -170,6 +172,8 @@
 		<html:hidden property="cmd" value=""/>
 		<html:hidden property="id" value=""/>
 	</html:form>
+	
+	<img src="images/house.gif" style="left:0px; top:130px;">
 
 	<img src="images/water.gif" style="left:650px; top:735px; height:30px; width:30px;" title="Zone 1 On" onclick="macro('IRZN1');">
 	<img src="images/water.gif" style="left:800px; top:550px; height:30px; width:30px;" title="Zone 2 On" onclick="macro('IRZN2');">

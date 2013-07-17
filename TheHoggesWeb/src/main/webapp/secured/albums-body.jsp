@@ -1,6 +1,6 @@
-<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
-<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
-<%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
+<%@ taglib uri="http://jakarta.apache.org/struts/tags-bean" prefix="bean" %>
+<%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
+<%@ taglib uri="http://jakarta.apache.org/struts/tags-html" prefix="html" %>
 <%@page import="com.hogdev.enterprise.Constants"%>
 <%@page import="com.hogdev.enterprise.beans.Resource"%>
 <%@page import="java.util.ArrayList"%>

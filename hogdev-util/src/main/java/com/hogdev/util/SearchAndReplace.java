@@ -14,6 +14,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Serializable;
 
+import org.apache.commons.io.IOCase;
+import org.apache.commons.io.filefilter.WildcardFileFilter;
+
 public class SearchAndReplace implements Runnable, Serializable,
         PropertyChangeListener
 
@@ -48,7 +51,7 @@ public class SearchAndReplace implements Runnable, Serializable,
     // for notifying listeners
     private PropertyChangeSupport listeners;
 
-    private WildCardFileFilter wcf;
+    private WildcardFileFilter wcf;
 
     public static void main(String[] args)
     {
@@ -195,7 +198,7 @@ public class SearchAndReplace implements Runnable, Serializable,
 
         listeners.firePropertyChange("search_status", "", "Starting");
 
-        wcf = new WildCardFileFilter(strFilter);
+        wcf = new WildcardFileFilter(strFilter, IOCase.INSENSITIVE);
 
         // do not allow a blank or null source string
         if (strSearch == null || strSearch.length() == 0)

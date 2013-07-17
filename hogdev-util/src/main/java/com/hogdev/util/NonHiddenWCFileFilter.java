@@ -9,6 +9,9 @@ package com.hogdev.util;
 import java.io.File;
 import java.io.FileFilter;
 
+import org.apache.commons.io.IOCase;
+import org.apache.commons.io.filefilter.WildcardFileFilter;
+
 /**
  * @author
  * 
@@ -17,7 +20,7 @@ import java.io.FileFilter;
  */
 public class NonHiddenWCFileFilter implements FileFilter
 {
-    WildCardFileFilter wcf;
+    WildcardFileFilter wcf;
 
     NonHiddenFileFilter nhf;
 
@@ -26,7 +29,7 @@ public class NonHiddenWCFileFilter implements FileFilter
     public NonHiddenWCFileFilter(String str)
     {
         pattern = str;
-        wcf = new WildCardFileFilter(str);
+        wcf = new WildcardFileFilter(str, IOCase.INSENSITIVE);
         nhf = new NonHiddenFileFilter();
     }
 

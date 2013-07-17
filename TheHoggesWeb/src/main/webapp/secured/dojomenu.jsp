@@ -1,4 +1,6 @@
-<%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html"%>
+<%@ taglib uri="http://jakarta.apache.org/struts/tags-bean" prefix="bean" %>
+<%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
+<%@ taglib uri="http://jakarta.apache.org/struts/tags-html" prefix="html" %>
 <script type="text/javascript" src="<html:rewrite page="/js/dojo-release-1.2.3/dojo/dojo.js"/>"></script>
 
 <style type="text/css">

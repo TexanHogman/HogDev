@@ -16,6 +16,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Serializable;
 
+import org.apache.commons.io.IOCase;
+import org.apache.commons.io.filefilter.WildcardFileFilter;
+
 public class SearchAndReplaceOld implements Serializable
 {
     /**
@@ -193,8 +196,8 @@ public class SearchAndReplaceOld implements Serializable
             setStatus(file.getAbsolutePath());
 
             File[] fa_Children = file
-                    .listFiles((FilenameFilter) new WildCardFileFilter(
-                            strPattern_));
+                    .listFiles((FilenameFilter) new WildcardFileFilter(
+                            strPattern_, IOCase.INSENSITIVE));
             for (int i = 0; fa_Children != null && i < fa_Children.length
                     && !bStop_; i++)
             {

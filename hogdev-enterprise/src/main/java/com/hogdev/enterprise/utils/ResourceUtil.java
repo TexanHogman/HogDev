@@ -9,17 +9,19 @@ package com.hogdev.enterprise.utils;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.FileReader;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 
+import org.apache.commons.io.IOCase;
+import org.apache.commons.io.filefilter.WildcardFileFilter;
 import org.apache.log4j.Logger;
 
 import com.hogdev.enterprise.Constants;
 import com.hogdev.enterprise.beans.Resource;
 import com.hogdev.util.NonHiddenFileFilter;
-import com.hogdev.util.WildCardFileFilter;
 
 /**
  * @author RHogge
@@ -137,6 +139,7 @@ public class ResourceUtil
 	
 	public static Resource buildResource(String baseDir, String strPath)
 	{
+		logger.debug("==> buildResource");
 		Resource resource = null;
 	
 		String strFullPath = baseDir;
@@ -187,13 +190,17 @@ public class ResourceUtil
 			switch(resource.getType())
 			{
 				case Constants.DIR:
-					File[] tfile = file.listFiles((FileFilter)new WildCardFileFilter("Folder.jpg"));
+					File[] tfile = file.listFiles((FileFilter)new WildcardFileFilter("Folder.jpg", IOCase.INSENSITIVE));
+					
 					for(int i = 0; i < tfile.length; i++)
 					{
 						if(tfile[i].isFile())
-							resource.setThumbPath(strPath + FILE_SEP + tfile[0].getName());
+						{
+							resource.setThumbPath(strPath + FILE_SEP + tfile[i].getName());
+							break;
+						}
 					}
-					tfile = file.listFiles((FileFilter)new WildCardFileFilter("Caption.txt"));
+					tfile = file.listFiles((FileFilter)new WildcardFileFilter("Caption.txt", IOCase.INSENSITIVE));
 					for(int i = 0; i < tfile.length; i++)
 					{
 						if(tfile[i].isFile())
@@ -218,6 +225,7 @@ public class ResourceUtil
 							{
 								logger.error(e);
 							}
+							break;
 						}
 					}
 					break;
@@ -227,6 +235,8 @@ public class ResourceUtil
 					break;
 			}
 		}
+		logger.debug("<== buildResource");
+		
 		return resource;
 	}
 }

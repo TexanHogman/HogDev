@@ -9,6 +9,9 @@ import java.net.URLEncoder;
 import java.util.Arrays;
 import java.util.Vector;
 
+import org.apache.commons.io.IOCase;
+import org.apache.commons.io.filefilter.WildcardFileFilter;
+
 public class MP3Playlist
 {
     boolean bLocal = true;
@@ -22,7 +25,7 @@ public class MP3Playlist
     // properties
     protected String m_strDir;
 
-    protected WildCardFileFilter wcff;
+    protected WildcardFileFilter wcff;
 
     public MP3Playlist()
     {
@@ -35,7 +38,7 @@ public class MP3Playlist
         {
             m_strDir = new File(strDir).getCanonicalPath();
             m_strDir += File.separator;
-            wcff = new WildCardFileFilter("*.mp3");
+            wcff = new WildcardFileFilter("*.mp3", IOCase.INSENSITIVE);
         }
         catch (IOException e)
         {

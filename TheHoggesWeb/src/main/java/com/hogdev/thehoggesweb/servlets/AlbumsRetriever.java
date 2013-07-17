@@ -15,6 +15,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.io.IOCase;
+import org.apache.commons.io.filefilter.WildcardFileFilter;
 import org.apache.log4j.Logger;
 
 import com.hogdev.enterprise.Constants;
@@ -22,7 +24,6 @@ import com.hogdev.enterprise.beans.Resource;
 import com.hogdev.enterprise.servlets.Retriever;
 import com.hogdev.enterprise.utils.ResourceUtil;
 import com.hogdev.util.GeneralUtils;
-import com.hogdev.util.WildCardFileFilter;
 
 /**
  * @author rick
@@ -37,8 +38,7 @@ public class AlbumsRetriever extends Retriever
      */
     private static final long serialVersionUID = -7624818141462202425L;
     static Logger logger = Logger.getLogger(AlbumsRetriever.class);
-//	final FileFilter filter = new WildCardFileFilter("AlbumArtSmall.jpg");
-	final FileFilter filter = new WildCardFileFilter("Folder.jpg");
+	final FileFilter filter = new WildcardFileFilter("Folder.jpg", IOCase.INSENSITIVE);
     File music = null;
 	
 	public void init() throws ServletException

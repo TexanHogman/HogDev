@@ -1,5 +1,6 @@
-<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
-<%@taglib uri="/WEB-INF/struts-html.tld" prefix="html"%>
+<%@ taglib uri="http://jakarta.apache.org/struts/tags-bean" prefix="bean" %>
+<%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
+<%@ taglib uri="http://jakarta.apache.org/struts/tags-html" prefix="html" %>
 
 <bean:define id="stats" name="stats" scope="application" type="com.hogdev.enterprise.beans.Stats"/>
 <div class="groupbox">

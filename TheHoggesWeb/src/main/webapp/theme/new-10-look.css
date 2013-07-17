@@ -38,8 +38,7 @@ body {
 {
 	width: 1000px;
 	height: 768px;
-	background-image: url(../images/house.gif);
-    background-repeat: no-repeat;
+	background-color:#A6D06E;    
 	cursor: default; 
 }
 

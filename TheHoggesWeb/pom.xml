@@ -9,6 +9,15 @@
 	<description></description>
 	<url>${siteUrl}/${project.artifactId}/${project.version}</url>
 
+	<repositories>
+		<!--other repositories if any -->
+		<repository>
+			<id>project.local</id>
+			<name>project</name>
+			<url>file:${project.basedir}/repo</url>
+		</repository>
+	</repositories>
+
 	<developers>
 		<developer>
 			<id>rhogge</id>
@@ -40,7 +49,16 @@
 			<artifactId>json</artifactId>
 			<version>20090211</version>
 		</dependency>
-
+		<dependency>
+			<groupId>na</groupId>
+			<artifactId>httpheaders</artifactId>
+			<version>0.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-el</groupId>
+			<artifactId>commons-el</artifactId>
+			<version>1.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -85,13 +103,13 @@
 					</excludes>
 				</configuration>
 			</plugin>
-			
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.3</version>
 			</plugin>
-			
+
 		</plugins>
 	</build>
 
